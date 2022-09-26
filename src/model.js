@@ -3,20 +3,25 @@ let api = {
   giphy: "dBHNHTQzuJhvJ9g9hhdcYVm8ifjCECU4",
 };
 
-async function decodeGeoLocation() {
 
-}
-
-async function callWeatherApi(cord, unit) {
-  let response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${cord.lat}&lon=${cord.lon}&appid=${api.weather}&units=${unit}`,
-    { 
-      method: "GET",
-      mode: 'cors',
+// Call api using city name parameter intead of coordinates
+async function getWeather(city, unit) {
+  try {
+    let response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api.weather}&units=${unit}`,
+      { 
+        method: 'GET',
+        mode: 'cors',
+      }
+    );
+    let data = await response.json();
+    if (data.cod == '400') {
+      throw ("Bad request - Probably empty city")
     }
-  );
-  let data = await response.json();
-  return data;
+    return data;
+  } catch (err) {
+    throw (err)
+  }
 }
 
-export { callWeatherApi };
+export { getWeather };
