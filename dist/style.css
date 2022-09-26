@@ -1,0 +1,124 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;   
+}
+
+.main {
+  background-image: url("./images/pexels-kai-pilger-1341279.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 100vh;
+  gap: 20px;
+  justify-items: center;
+}
+
+.main-container {
+  background-color: rgba(182, 182, 182, 0.4);
+  grid-column: 2 / 4;
+  width: 100%;
+  align-self: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15px;
+}
+
+.input {
+  grid-column: 4 / 5;
+  margin: 2rem;
+}
+
+.input input {
+  border-radius: 7px;
+  border: none;
+  background-color: rgba(255, 255, 255, 70%);
+  padding: 0.7rem;
+  font-size: large;
+}
+
+.weather__stats {
+  color: white;
+  font-family: roboto, sans-serif;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* .icon {
+  position: relative;
+} */
+
+.icon > img {
+  max-width: 200px;
+  /* position: absolute;
+  width: 300px;
+  top: -1.5rem;
+  left: -6.0rem; */
+}
+
+.weather__metrics > .container > *{
+  display: flex;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  gap: 5px;
+}
+
+.weather__metrics > .container > * > *:first-child{
+  color: rgb(197, 197, 197);
+}
+
+.weather__metrics > .container {
+  margin-left: 4rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 50%);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  align-content: center;
+}
+
+.weather__metrics {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.weather__description {
+  font-size: 2rem;
+}
+
+.weather__city {
+  font-size: 3rem;
+}
+
+.weather__temp {
+  font-size: 6rem;
+  font-weight: 500;
+  position: relative;
+  letter-spacing: 3px;
+}
+
+.weather__temp::after {
+  content: '\00B0 C';
+  font-size: 3rem;
+  position: absolute;
+  top: 0rem;
+  left: 6.2rem;
+}
+
+.weather__feels > p:last-child {
+  position: relative;
+}
+
+.weather__feels > p:last-child:after {
+  content: '\00B0 C';
+  font-size: 1rem;
+  position: absolute;
+  top: -0.3rem;
+  left: 1.5rem;
+}
