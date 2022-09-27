@@ -6,6 +6,7 @@ let weatherDOM = {};
 let units = "metric";
 let alertInput;
 
+// This runs when the app starts to cache in all the needed metrics and names to be updated
 function cacheDOM() {
   cityInput = document.getElementById("city-input");
   weatherDOM.city = document.querySelector(".weather__city");
@@ -19,6 +20,7 @@ function cacheDOM() {
   window.addEventListener("keydown", updateWeather);
 }
 
+// Call the weather API from model.js
 async function updateWeather(e) {
   try {
     if (!e) {
@@ -67,6 +69,7 @@ function refreshDisplay(dataReceived) {
   }
 }
 
+// Checks for change in units preference. The default is "metric"
 function checkUnits() {
   let unitToggle = document.querySelector(".form-check-input");
   unitToggle.addEventListener("click", setUnits);
@@ -80,7 +83,7 @@ function checkUnits() {
     updateWeather();
   }
 }
-
+// Displays error if city not found
 function alterNotFound(err) {
   alertInput.classList.add("alter-transition");
 }
