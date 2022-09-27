@@ -49,7 +49,7 @@ function refreshDisplay(dataReceived) {
     String(dataReceived.main.feels_like).slice(0, 2)
   )}`;
   weatherDOM.wind.textContent = `${dataReceived.wind.speed} ${
-    units == "metric" ? "Kmh" : "mph"
+    units == "metric" ? "m/s" : "mph"
   }`;
   weatherDOM.rain.textContent = `${
     dataReceived.rain ? dataReceived.rain["1h"] : "0"
