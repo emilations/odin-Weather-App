@@ -13,7 +13,7 @@
   background-size: cover;
   background-position: center;  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
   height: 100vh;
   gap: 20px;
   justify-items: center;
@@ -21,27 +21,26 @@
 
 
 .input {
-  grid-column: 3 / 4;
   margin: 2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: relative;
+  justify-self: end;
+  margin-right: 4rem;
 }
 
-.input input:first-child {
+.input > input:first-child {
   border-radius: 7px;
   border: none;
   background-color: rgba(255, 255, 255, 100%);
   padding: 0.7rem;
   font-size: large;
   z-index: 2;
-
 }
 
 .weather__card {
   max-width: 500px;
-  grid-column: 2 / 3;
   color: white;
   font-family: roboto, sans-serif;
   padding: 1.5rem;
@@ -79,7 +78,6 @@
 .weather__metrics {
   display: flex;
   padding-top: 1rem;
-  /* flex-wrap: wrap; */
 }
 
 .weather__description {
@@ -153,4 +151,21 @@ margin-left: 10px;
 .alter-transition {
   color: rgb(255, 255, 255);
   transform: translateX(-120px)
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+    justify-self: center;
+    margin-right: 2rem;
+  }
+  .alter-transition {
+    color: rgb(255, 255, 255);
+    transform: translateY(90px)
+  }
+  .weather__card {
+    width: auto;
+  }
+  .weather__temp {
+    font-size: 3rem;
+  }
 }
